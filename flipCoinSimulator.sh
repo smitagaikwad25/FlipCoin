@@ -24,7 +24,7 @@ declare -A flipcoin
 	if  [ $random -eq 1 ]
         then
                 (( head++ ))
-                echo "HEAD"  echo "head is $numOfHead times"
+                echo "HEAD"  
 
         else
 		(( tail++ ))
