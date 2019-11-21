@@ -20,6 +20,10 @@ declare -A flipcoin
 	echo "Enter number to flip coin"
 	read flip 
 
+	function toss()
+
+	{
+
 
 	while [ $counter != $flip ]
 	do
@@ -30,42 +34,42 @@ declare -A flipcoin
 	if  [[ $random1 -eq 1 && $random2 -eq 1 ]]
         then
                 (( HH++ ))
-                echo "HEAD HEAD"
+                echo "HH"
 	elif [[ $random1 -eq 1 && $random2 -eq 0 ]]
 	then
 		(( HT++ ))
-               echo  "HEAD TAIL" 
+               echo "HT" 
 
         elif [[ $random1 -eq 0 && $random2 -eq 1 ]]
 	then
 		(( TH++ ))
-		echo "TAIL HEAD "
+		echo "TH "
 	else
 		(( TT++ ))
-		echo "TAIL TAIL"
+		echo "TT"
 	fi
 		(( counter++ ))
-
-		flipcoin[11]="HH"
-		flipcoin[10]="HT"
-		flipcoin[01]="TH"
-		flipcoin[00]="TT"
-		flipcoin[]
-
-
+		flipcoin[HH]="HH"
+		flipcoin[HT]="HT"
+		flipcoin[TH]="TH"
+		flipcoin[TT]="TT"
 
 
 	done
 
 
 
-	echo  percentHH=$(($HH*100/$flip))
-	echo  percentHT=$(($HT*100/$flip))
-	echo  percentTH=$(($TH*100/$flip))
-	echo  percentTT=$(($TT*100/$flip))
-
-	echo "Doublet Combination" ${flipcoin[@]}
+		echo  percentHH=$(($HH*100/$flip))
+		echo  percentHT=$(($HT*100/$flip))
+		echo  percentTH=$(($TH*100/$flip))
+		echo  percentTT=$(($TT*100/$flip))
 
 
-random=0
 
+
+		echo "Doublet Combination" ${flipcoin[@]}   
+
+
+	}
+
+toss
