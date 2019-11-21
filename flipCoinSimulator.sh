@@ -20,7 +20,7 @@ declare -A flipcoin
 	echo "Enter number to flip coin"
 	read flip 
 
-	function toss()
+function toss()
 
 	{
 
@@ -28,31 +28,31 @@ declare -A flipcoin
 	while [ $counter != $flip ]
 	do
 
-	random1=$((RANDOM%2))
-	random2=$((RANDOM%2))
+		random1=$((RANDOM%2))
+		random2=$((RANDOM%2))
 
-	if  [[ $random1 -eq 1 && $random2 -eq 1 ]]
-        then
-                (( HH++ ))
-                echo "HH"
-	elif [[ $random1 -eq 1 && $random2 -eq 0 ]]
-	then
-		(( HT++ ))
-               echo "HT" 
+		if  [[ $random1 -eq 1 && $random2 -eq 1 ]]
+		then
+                	(( HH++ ))
+                	echo "HH"
+		elif [[ $random1 -eq 1 && $random2 -eq 0 ]]
+		then
+			(( HT++ ))
+               		echo "HT" 
 
-        elif [[ $random1 -eq 0 && $random2 -eq 1 ]]
-	then
-		(( TH++ ))
-		echo "TH "
-	else
-		(( TT++ ))
-		echo "TT"
-	fi
-		(( counter++ ))
-		flipcoin[HH]="HH"
-		flipcoin[HT]="HT"
-		flipcoin[TH]="TH"
-		flipcoin[TT]="TT"
+        	elif [[ $random1 -eq 0 && $random2 -eq 1 ]]
+		then
+			(( TH++ ))
+			echo "TH "
+		else
+			(( TT++ ))
+			echo "TT"
+		fi
+			(( counter++ ))
+			flipcoin[HH]="HH"
+			flipcoin[HT]="HT"
+			flipcoin[TH]="TH"
+			flipcoin[TT]="TT"
 
 
 	done
