@@ -1,73 +1,49 @@
+#!bin/bash -x
 echo "Welcome to flipCoin Simulator"
-
-#constant
-
 
 #variables
 random=0
-HH=0
-HT=0
-TH=0
-TT=0
-
-counter=0
+H=0
+T=0
 
 #dictionary
-
 declare -A flipcoin
 
 
-	echo "Enter number to flip coin"
-	read flip 
+		echo "Enter number to flip coin"
+		read flip
+		echo "Enter number of coines"
+		read coin 
 
 function toss()
 
 	{
+		for(( i=1; i<=flip ; i++ ))
+		do
+			res=""
+			for (( j=1; j<=coin; j++ ))
+			do
 
+				random=$((RANDOM%2))
 
-	while [ $counter != $flip ]
-	do
-
-		random1=$((RANDOM%2))
-		random2=$((RANDOM%2))
-
-		if  [[ $random1 -eq 1 && $random2 -eq 1 ]]
-		then
-                	(( HH++ ))
-                	echo "HH"
-		elif [[ $random1 -eq 1 && $random2 -eq 0 ]]
-		then
-			(( HT++ ))
-               		echo "HT" 
-
-        	elif [[ $random1 -eq 0 && $random2 -eq 1 ]]
-		then
-			(( TH++ ))
-			echo "TH "
-		else
-			(( TT++ ))
-			echo "TT"
-		fi
-			(( counter++ ))
-			flipcoin[HH]="HH"
-			flipcoin[HT]="HT"
-			flipcoin[TH]="TH"
-			flipcoin[TT]="TT"
-
-
-	done
+				if  [[ $random -eq 1 ]]
+				then
+					((  H++ ))
+                			res=$res"H"
+				else
+					(( T++ ))
+					res=$res"T"
+				fi
+			done
+				echo "result is:" $res
+				flipcoin[$res]=$((${flipcoin["$res"]}+1))
 
 
 
-		echo  percentHH=$(($HH*100/$flip))
-		echo  percentHT=$(($HT*100/$flip))
-		echo  percentTH=$(($TH*100/$flip))
-		echo  percentTT=$(($TT*100/$flip))
+		done 
 
+		echo "Dictionary" ${!flipcoin[@]} : ${flipcoin[@]}
 
-
-
-		echo "Doublet Combination" ${flipcoin[@]}   
 
 
 	}
