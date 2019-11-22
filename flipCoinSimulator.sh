@@ -43,6 +43,12 @@ function toss()
 		done 
 
 		echo "Dictionary" ${!flipcoin[@]} : ${flipcoin[@]}
+		for pairs in "${!flipcoin[@]}"
+		do
+                        echo $pairs :  ${flipcoin["$pairs"]}
+                done | sort -rn -k3
+
+
 
 
 
