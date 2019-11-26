@@ -3,8 +3,6 @@ echo "Welcome to flipCoin Simulator"
 
 #variables
 random=0
-H=0
-T=0
 
 #dictionary
 declare -A flipcoin
